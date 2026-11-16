@@ -21,7 +21,7 @@
   --section-gap: clamp(80px, 8.33vw, 120px);
 
   /* Type scale (desktop → phone) */
-  --fs-hero: clamp(64px, 11.25vw, 162px);
+  --fs-hero: clamp(48px, 10.14vw, 146px);
   --fs-h2: clamp(40px, 5.56vw, 80px);
   --fs-h2-small: clamp(40px, 4.44vw, 64px);
   --fs-eyebrow: clamp(14px, 1.25vw, 18px);
@@ -30,6 +30,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -91,22 +92,6 @@ cite { font-style: normal; }
 .arrow { width: 40px; height: 15px; transition: transform .2s ease; }
 .btn:hover .arrow { transform: translateX(4px); }
 
-/* Illustration slots. Placeholders show a dashed box until real art arrives. */
-.illo { flex: none; }
-.illo--placeholder {
-  position: relative;
-  border: 2px dashed rgba(41, 37, 34, .35);
-  border-radius: 8px;
-}
-.illo--placeholder::after {
-  content: attr(data-label);
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center; text-align: center;
-  padding: 8px;
-  font: 700 12px/1.3 var(--sans); letter-spacing: .06em; text-transform: uppercase;
-  color: rgba(41, 37, 34, .55);
-}
-
 /* ---------- nav ---------- */
 .site-header {
   position: relative; z-index: 10;
@@ -129,26 +114,25 @@ cite { font-style: normal; }
 
 /* ---------- 1. hero ---------- */
 .hero {
-  padding: clamp(120px, 13.9vw, 200px) var(--gutter) var(--section-gap);
+  padding: clamp(80px, 9.44vw, 136px) var(--gutter) 0;
 }
 .hero__title {
   font-family: var(--serif);
   font-weight: 500;
   font-size: var(--fs-hero);
-  line-height: 1;
+  line-height: 1.055;
   letter-spacing: -0.02em;
   max-width: 8.5em;
 }
-.hero__row {
-  display: flex; align-items: flex-start; justify-content: flex-end;
-  gap: clamp(16px, 5vw, 72px);
-  margin-top: clamp(32px, 5.56vw, 80px);
-}
-.hero__illo { width: clamp(91px, 19.5vw, 281px); aspect-ratio: 281 / 120; margin-right: auto; margin-left: 8%; }
 .hero__lede {
   width: min(566px, 100%);
+  margin: 40px clamp(0px, 8.2vw, 118px) 0 auto;
   font-size: clamp(18px, 1.67vw, 24px);
-  line-height: 1.17;
+  line-height: 1.33;
+}
+.hero__art {
+  display: block; width: min(920px, 100%); height: auto;
+  margin: 80px auto 0;
 }
 
 /* ---------- 2. about ---------- */
@@ -156,33 +140,39 @@ cite { font-style: normal; }
 .about__panel {
   background: var(--stone);
   width: 82%;
-  min-height: clamp(480px, 48.6vw, 700px);
-  padding: 80px var(--gutter) clamp(72px, 5.56vw, 80px);
+  min-height: 640px;
+  padding: 80px var(--gutter);
   display: flex; flex-direction: column; justify-content: space-between; gap: 48px;
 }
-.about__panel .h2 { max-width: 920px; }
-.about__illo {
-  position: absolute; right: 0;
-  top: calc(clamp(480px, 48.6vw, 700px) - clamp(120px, 13.8vw, 199px));
-  width: clamp(284px, 34.7vw, 500px); aspect-ratio: 500 / 282;
+.about__panel .h2 { max-width: 566px; }
+.about__art {
+  position: absolute; z-index: 1;
+  top: 80px; right: -15px;
+  width: min(605px, 42vw); height: auto;
 }
 .about__body {
-  margin: clamp(72px, 5.56vw, 80px) 0 0 calc(25% + 18px);
-  max-width: 684px;
+  position: relative; z-index: 2;
+  margin: 80px 0 0 calc(16.67% + 20px);
+  max-width: 566px;
   line-height: 1.4;
 }
 .about__body p + p { margin-top: 1.4em; }
-.about__body .btn { margin-top: 48px; }
+.about__body .btn { margin-top: 40px; }
 
 /* ---------- 3. team ---------- */
-.team { padding: 0 var(--edge) var(--section-gap); text-align: center; }
-.team__illo { width: clamp(280px, 31.2vw, 449px); aspect-ratio: 449 / 164; margin: 40px auto; }
-.team .h2 { max-width: 920px; margin: 0 auto; }
+.team { position: relative; padding: 40px var(--edge) var(--section-gap); }
+.team__header { position: relative; text-align: center; }
+.team__art {
+  position: absolute; left: calc(-1 * var(--edge)); top: -140px;
+  width: min(472px, 33vw); height: auto;
+}
+.team__heading { position: relative; max-width: 920px; margin: 0 auto; }
+.team__heading .h2 { margin-top: 40px; }
 .team__grid {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 72px 24px;
   margin-top: 80px;
-  text-align: left;
+  position: relative;
 }
 .person__photo {
   width: 100%; aspect-ratio: 448 / 520; object-fit: cover;
@@ -222,10 +212,7 @@ cite { font-style: normal; }
 
 /* ---------- 5. curava ---------- */
 .curava { padding: var(--section-gap) var(--gutter); }
-.curava__title { display: block; max-width: 920px; margin: 0 auto; }
-.curava__line1, .curava__line2 { display: block; }
-.curava__line2 { display: flex; align-items: center; gap: clamp(8px, 2vw, 32px); }
-.curava__illo { display: block; width: clamp(197px, 16.2vw, 233px); aspect-ratio: 233 / 85; }
+.curava__title { max-width: 920px; }
 .curava__row {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px; align-items: end;
@@ -256,8 +243,7 @@ cite { font-style: normal; }
   padding: 0 0 80px 40px;
   display: flex; flex-direction: column; gap: 24px;
 }
-.thinking__illo { width: clamp(180px, 16.4vw, 236px); aspect-ratio: 236 / 157; margin: 60px 0 0 calc(-40px - var(--edge)); }
-.thinking__panel .h2 { max-width: 526px; margin-top: auto; }
+.thinking__panel .h2 { max-width: 526px; margin-top: auto; padding-top: 160px; }
 .thinking__intro { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.33; max-width: 526px; }
 .thinking__card {
   background: var(--ink); color: var(--paper);
@@ -299,6 +285,13 @@ cite { font-style: normal; }
    Tablet
    ========================================================= */
 @media (max-width: 1100px) {
+  .about__panel { width: 78%; min-height: 577px; padding-left: clamp(16px, 12vw, 124px); padding-right: 40px; }
+  .about__art { top: 281px; right: -9px; width: min(409px, 40vw); }
+  .about__body { margin-left: clamp(16px, 12vw, 124px); max-width: 476px; }
+  .team__header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; text-align: left; align-items: start; }
+  .team__art { position: static; width: 100%; max-width: 376px; margin: -80px 0 0; justify-self: end; }
+  .team__heading { margin: 0; }
+  .team__heading .h2 { margin-top: 24px; }
   .team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .clients { grid-template-columns: 1fr; min-height: 0; }
   .clients__text { gap: 24px; }
@@ -312,6 +305,7 @@ cite { font-style: normal; }
    Phone
    ========================================================= */
 @media (max-width: 760px) {
+  :root { --gutter: 16px; }
   .menu-toggle { display: block; }
   .site-nav {
     position: absolute; left: 0; right: 0; top: 100%;
@@ -325,18 +319,20 @@ cite { font-style: normal; }
   .site-nav .btn { margin-top: 12px; }
   .no-js .site-nav { position: static; display: block; }
 
-  .hero { padding-top: 120px; }
-  .hero__title { line-height: 1.125; }
-  .hero__row { margin-top: 24px; }
-  .hero__illo { margin: 16px 0 0 -16px; }
-  .hero__lede { width: 253px; line-height: 1.45; }
+  .hero { padding-top: 80px; }
+  .hero__title { line-height: 1.17; }
+  .hero__lede { margin: 40px 0 0; width: 100%; line-height: 1.45; }
+  .hero__art { margin-top: 64px; }
 
-  .about__panel { width: 100%; padding-top: 40px; padding-bottom: 120px; }
-  .about__illo { right: auto; left: 50%; transform: translateX(-45%); top: calc(clamp(480px, 48.6vw, 700px) - 48px); }
-  .about__body { margin: 200px var(--gutter) 0; font-size: 16px; line-height: 1.5; }
+  .about__panel { width: 100%; min-height: 500px; padding: 40px 16px 154px; }
+  .about__art { top: 362px; right: -9px; width: 275px; }
+  .about__body { margin: 242px 16px 0; font-size: 16px; line-height: 1.5; }
 
-  .team__illo { width: 100%; margin: 24px auto; }
-  .team__grid { grid-template-columns: 1fr; gap: 48px; margin-top: 48px; padding: 0 calc(16px - var(--edge)); }
+  .team { padding-top: 80px; }
+  .team__header { grid-template-columns: 130px minmax(0, 1fr); gap: 16px; }
+  .team__art { width: 180px; max-width: none; margin: 10px 0 0 -36px; }
+  .team__heading .h2 { margin-top: 24px; font-size: min(40px, 9vw); }
+  .team__grid { grid-template-columns: 1fr; gap: 48px; margin-top: 0; padding: 0 calc(16px - var(--edge)); }
   .person__photo { aspect-ratio: 343 / 400; }
 
   .clients { padding: 40px 16px 64px; }
@@ -345,17 +341,14 @@ cite { font-style: normal; }
   .clients__logos li { height: 90px; }
   .clients__logos img { max-height: calc(var(--h, 80px) * .7); }
 
-  .curava__line2 { flex-direction: column; align-items: stretch; gap: 8px; }
-  .curava__line2 > span:last-child { text-align: right; }
-  .curava__illo { margin-left: -16px; }
   .curava__row { grid-template-columns: 1fr; gap: 40px; margin-top: 48px; }
   .curava__logo { order: -1; aspect-ratio: 343 / 200; }
   .curava__text p { font-size: 16px; }
 
   .thinking { margin: 0 0 0; padding-top: 40px; }
   .thinking::before { left: 16px; height: calc(100% - 560px); }
-  .thinking__panel { padding: 0 16px 40px 40px; }
-  .thinking__illo { margin: 24px 0 0 -40px; }
+  .thinking__panel { padding: 0 16px 40px 24px; }
+  .thinking__panel .h2 { padding-top: 96px; }
   .thinking__card { padding: 40px 16px; gap: 40px; }
 
   .site-footer__inner {
