@@ -26,7 +26,6 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 | Substack subscribe link | Subscribe button, and Substack in the footer |
 | Contact email | Footer button: use `href="mailto:you@commongooded.com"` and change the button text if you like |
 | LinkedIn, Instagram URLs | Footer |
-| Roane's one-line bio | Team section |
 
 ## Swapping in photos
 
