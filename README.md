@@ -21,7 +21,6 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 
 | What | Where |
 | --- | --- |
-| Curava link | "See how Curava works" button (`data-todo="curava-url"`) |
 | Newest Substack post: date, read time, title, summary, link | Latest Thinking card (`data-todo="substack-post"`) |
 | Substack subscribe link | Subscribe button, and Substack in the footer |
 | Contact email | Footer button: use `href="mailto:you@commongooded.com"` and change the button text if you like |
