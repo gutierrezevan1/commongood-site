@@ -15,14 +15,6 @@ assets/team/        headshots
 
 Open `index.html` in a browser. Or, from this folder, run `python3 -m http.server` and visit http://localhost:8000.
 
-## Still to fill in
-
-Search `index.html` for `data-todo` and for text in [square brackets]:
-
-| What | Where |
-| --- | --- |
-| LinkedIn, Instagram URLs | Footer |
-
 ## Updating the Latest Thinking card
 
 When a new Substack post goes up, update the date, read time, title, summary and "Read on Substack" link in the `<article class="post">` block in `index.html`.
