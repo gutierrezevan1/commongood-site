@@ -21,8 +21,7 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 
 | What | Where |
 | --- | --- |
-| Newest Substack post: date, read time, title, summary, link | Latest Thinking card (`data-todo="substack-post"`) |
-| Substack subscribe link | Subscribe button, and Substack in the footer |
+| Newest Substack post: date, read time, title, summary, link | Latest Thinking card (`data-todo="substack-post"`); the button currently links to the Substack home page |
 | Contact email | Footer button: use `href="mailto:you@commongooded.com"` and change the button text if you like |
 | LinkedIn, Instagram URLs | Footer |
 
