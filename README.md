@@ -28,15 +28,9 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 
 When a new Substack post goes up, update the date, read time, title, summary and "Read on Substack" link in the `<article class="post">` block in `index.html`.
 
-## Swapping in photos
+## Updating photos
 
-Each headshot is a `<div class="person__photo person__photo--placeholder">`. Replace it with:
-
-```html
-<img class="person__photo" src="assets/team/evan-gutierrez.jpg" alt="Evan Gutiérrez" width="448" height="520" loading="lazy">
-```
-
-Use black-and-white photos at least 900 × 1040px, so they look sharp on high-resolution screens. Photos are cropped to a 448 × 520 frame (343 × 400 on phones) automatically. Stephanie's current photo came from the Figma file at 448 × 520, so swap in the original file when you have it.
+Headshots live in `assets/team/`. To replace one, keep the file name and use a black-and-white photo at least 900 × 1040px. It's cropped to a 448 × 520 frame (343 × 400 on phones) automatically. Stephanie's and Kyle's current photos came from the Figma file at 448 × 520, so swap in the originals when you have them.
 
 ## Artwork
 
