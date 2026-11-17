@@ -252,6 +252,8 @@ cite { font-style: normal; }
   margin-right: calc(-1 * var(--edge) + 24px);
 }
 .post { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.post__image { display: block; width: min(100%, 320px); margin-bottom: 16px; }
+.post__image img { width: 100%; height: auto; aspect-ratio: 1; }
 .post__meta { font-weight: 700; font-size: clamp(14px, 1.11vw, 16px); line-height: 1.5; text-transform: uppercase; }
 .post__title { font-weight: 700; font-size: clamp(24px, 3.33vw, 48px); line-height: 1.17; }
 .post__summary { font-size: clamp(14px, 1.11vw, 16px); line-height: 1.5; }
