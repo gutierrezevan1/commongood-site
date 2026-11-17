@@ -21,9 +21,12 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 
 | What | Where |
 | --- | --- |
-| Newest Substack post: date, read time, title, summary, link | Latest Thinking card (`data-todo="substack-post"`); the button currently links to the Substack home page |
 | Contact email | Footer button: use `href="mailto:you@commongooded.com"` and change the button text if you like |
 | LinkedIn, Instagram URLs | Footer |
+
+## Updating the Latest Thinking card
+
+When a new Substack post goes up, update the date, read time, title, summary and "Read on Substack" link in the `<article class="post">` block in `index.html`.
 
 ## Swapping in photos
 
