@@ -21,7 +21,6 @@ Search `index.html` for `data-todo` and for text in [square brackets]:
 
 | What | Where |
 | --- | --- |
-| Contact email | Footer button: use `href="mailto:you@commongooded.com"` and change the button text if you like |
 | LinkedIn, Instagram URLs | Footer |
 
 ## Updating the Latest Thinking card
